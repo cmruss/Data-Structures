@@ -50,7 +50,7 @@ class DoublyLinkedList:
 
     def add_to_head(self, value):
         pass
-
+    
     def remove_from_head(self):
         pass
 
