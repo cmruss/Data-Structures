@@ -59,7 +59,7 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
-            print(f"adding to head : {self.head.value} ")
+            print(f"node.next: {new_node.next.value}")
 
     
     def remove_from_head(self):
@@ -86,6 +86,7 @@ class DoublyLinkedList:
     def move_to_front(self, node):
         if node is self.head:
             return
+        print(f"{self.tail.value}")
         self.delete(node)
         self.add_to_head(node.value)
         print(f"adding to head {node.value}")
