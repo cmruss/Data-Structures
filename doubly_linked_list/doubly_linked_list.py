@@ -133,3 +133,11 @@ class DoublyLinkedList:
                 max = cur_node.value
             cur_node = cur_node.next
         return max 
+
+    def reverse(self):
+        prev_val = None
+
+        while self.node.value is not None:
+            self.node.next = prev_val
+            prev_val = self.node.value
+

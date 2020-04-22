@@ -15,7 +15,7 @@ class Queue:
         return value
 
     def dequeue(self):
-        if self.size <=0:
+        if self.size <= 0:
             return None
         self.size -=1
         value = self.storage.remove_from_head()
