@@ -43,20 +43,14 @@ class LRUCache:
     def set(self, key, value):
         if key in self.cache:
             self.cache[key] = value
-            node = ListNode(self.cache[key])
+            node = ListNode(value)
             self.dll.move_to_front(node)
-        
         elif self.size == self.limit:
-            print(f"tail: {self.dll.tail.value} ")
-            # Why isn't this working?
             self.dll.remove_from_tail()
-            print(f"tail: {self.dll.tail.value} ")
-            # self.dll.tail =  self.dll.tail.prev
             for k in self.cache:
                 if self.cache[k] == self.dll.tail.value:
                     del self.cache[k]
                     self.cache[key] = value
-
         else: 
             self.size += 1          
             self.dll.add_to_head(value)
