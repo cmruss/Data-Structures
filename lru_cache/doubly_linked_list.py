@@ -54,13 +54,10 @@ class DoublyLinkedList:
         if not self.head and not self.tail:
             self.head = new_node
             self.tail = new_node
-            print(f"head and tail")
         else:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
-            print(f"node.next: {new_node.next.value}")
-
     
     def remove_from_head(self):
         value = self.head.value
@@ -89,9 +86,6 @@ class DoublyLinkedList:
         print(f"{self.tail.value}")
         self.delete(node)
         self.add_to_head(node.value)
-        print(f"adding to head {node.value}")
-        print(f"deleting {node.value}")
-
 
     def move_to_end(self, node):
         if node is self.tail:
@@ -103,19 +97,17 @@ class DoublyLinkedList:
     def delete(self, node):
         self.length -= 1
         if self.head is self.tail:
-            print(f"None to ends")
             self.head = None
             self.tail = None
         elif node is self.head:
             self.node = node.next
-            print(f"new head set")
             node.delete()
         elif node is self.tail:
-            self.node = node.prev
+            self.tail = self.tail.prev
             print(f"new tail set")
+            print(f"tail: {self.tail.value} ")
             node.delete()
         else:
-            print(f"just deleting")
             node.delete()
 
     def get_max(self):
@@ -131,12 +123,8 @@ class DoublyLinkedList:
         cur_node = self.head
         match = None
         while cur_node is not None:
-            print(f"looping")
-            print(f"{cur_node.value}")
             if cur_node.value == value:
-                print(f"match! {cur_node.value}")
                 match = cur_node
             cur_node = cur_node.next
-        print(f"match! {match.value}")  
         return match
                 

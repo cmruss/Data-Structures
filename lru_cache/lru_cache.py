@@ -26,8 +26,6 @@ class LRUCache:
         if key in self.cache:
             node = ListNode(self.cache[key])
             self.dll.move_to_front(node)
-            print(f"node.value: {node.value}")
-            print(f"tail: {self.dll.tail.value} ") 
             return node.value
         else:
             return None
@@ -49,18 +47,15 @@ class LRUCache:
             self.dll.move_to_front(node)
         
         elif self.size == self.limit:
-            print(self.cache)
-            print(self.dll.length)
-            print(self.dll.tail.value)
-            # cur_node = self.dll.head
+            print(f"tail: {self.dll.tail.value} ")
+            # Why isn't this working?
             self.dll.remove_from_tail()
-            self.dll.tail =  self.dll.tail.prev
-            print(self.dll.tail.value)
+            print(f"tail: {self.dll.tail.value} ")
+            # self.dll.tail =  self.dll.tail.prev
             for k in self.cache:
                 if self.cache[k] == self.dll.tail.value:
                     del self.cache[k]
                     self.cache[key] = value
-                    print(self.cache)
 
         else: 
             self.size += 1          
