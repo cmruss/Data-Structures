@@ -55,6 +55,3 @@ class LRUCache:
             self.size += 1          
             self.dll.add_to_head(value)
             self.cache[key] = value
-
-
-
